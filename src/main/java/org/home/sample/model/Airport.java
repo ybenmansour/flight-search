@@ -16,6 +16,12 @@ public class Airport implements Serializable {
 	private String city;
 	
 	
+	public Airport(String iatacode, String city) {
+		super();
+		this.iatacode = iatacode;
+		this.city = city;
+	}
+
 	public Airport(List<Object> params) {
 		super();
 		this.iatacode = String.valueOf(params.get(0));

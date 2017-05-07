@@ -21,6 +21,15 @@ public class Flight implements Serializable {
 	private Double basePrice;
 	
 	
+	public Flight(String origin, String destination, String flightNumber,
+			Double basePrice) {
+		super();
+		this.origin = origin;
+		this.destination = destination;
+		this.flightNumber = flightNumber;
+		this.basePrice = basePrice;
+	}
+
 	public Flight(List<Object> params) {
 		super();
 		this.origin = String.valueOf(params.get(0));

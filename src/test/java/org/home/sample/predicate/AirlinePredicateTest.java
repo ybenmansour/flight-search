@@ -15,7 +15,7 @@ public class AirlinePredicateTest {
 		airlines.add(new Airline("IB", "Iberia", 5.0));
 		airlines.add(new Airline("TK", "Turkish Airlines", 8.72));
 		
-		Assert.assertTrue(AirlinePredicate.filterAirlines(airlines, AirlinePredicate.existsAirline("IB")).isEmpty());
+		Assert.assertFalse(AirlinePredicate.filterAirlines(airlines, AirlinePredicate.existsAirline("IB")).isEmpty());
 	}
 
 }

@@ -19,6 +19,13 @@ public class PricingRules implements Serializable {
 	private Double percentage;
 	
 	
+	public PricingRules(Integer from, Integer to, Double percentage) {
+		super();
+		this.from = from;
+		this.to = to;
+		this.percentage = percentage;
+	}
+
 	public PricingRules(List<Object> params) {
 		super();
 		
