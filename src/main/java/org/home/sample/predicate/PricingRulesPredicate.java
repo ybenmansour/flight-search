@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.home.sample.model.PricingRules;
 
@@ -15,8 +16,12 @@ public class PricingRulesPredicate {
 						 || !Optional.ofNullable(pricingRules.getTo()).isPresent()) ; 
 	}
 	
-	public static List<PricingRules> filterPricingRules (List<PricingRules> pricingRules, Predicate<PricingRules> predicate) {
-        return pricingRules.stream().filter(predicate).collect(Collectors.<PricingRules>toList());
+//	public static List<PricingRules> filterPricingRules (List<PricingRules> pricingRules, Predicate<PricingRules> predicate) {
+//        return pricingRules.stream().filter(predicate).collect(Collectors.<PricingRules>toList());
+//    }
+	
+	public static Stream<PricingRules> filterPricingRules (List<PricingRules> pricingRules, Predicate<PricingRules> predicate) {
+        return pricingRules.stream().filter(predicate);
     }
 
 }

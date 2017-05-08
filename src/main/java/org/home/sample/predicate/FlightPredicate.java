@@ -2,7 +2,7 @@ package org.home.sample.predicate;
 
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.home.sample.model.Flight;
 
@@ -17,8 +17,12 @@ public class FlightPredicate {
 		return flight -> flight.getFlightNumber().startsWith(code); 
 	}
 	
-	public static List<Flight> filterFlights (List<Flight> flights, Predicate<Flight> predicate) {
-        return flights.stream().filter(predicate).collect(Collectors.<Flight>toList());
+//	public static List<Flight> filterFlights (List<Flight> flights, Predicate<Flight> predicate) {
+//        return flights.stream().filter(predicate).collect(Collectors.<Flight>toList());
+//    }
+	
+	public static Stream<Flight> filterFlights (List<Flight> flights, Predicate<Flight> predicate) {
+        return flights.stream().filter(predicate);
     }
 
 }

@@ -16,7 +16,7 @@ public class PricingRulesPredicateTest {
 		pricingRules.add(new PricingRules(4,30,120.0));
 		pricingRules.add(new PricingRules(31,null,80.0));
 		
-		Assert.assertTrue(PricingRulesPredicate.filterPricingRules(pricingRules, PricingRulesPredicate.percentageAvailable(45)).size() == 1) ;
+		Assert.assertTrue(PricingRulesPredicate.filterPricingRules(pricingRules, PricingRulesPredicate.percentageAvailable(45)).findFirst().isPresent()) ;
 	}
 	
 

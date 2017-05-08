@@ -15,6 +15,14 @@ import org.home.sample.model.Airline;
 import org.home.sample.model.Airport;
 import org.home.sample.model.Flight;
 import org.home.sample.model.PricingRules;
+import org.home.sample.model.request.SearchFlightRequest;
+import org.home.sample.model.response.SearchFlightResponse;
+import org.home.sample.service.PassengerTypeService;
+import org.home.sample.service.PricingRuleService;
+import org.home.sample.service.SearchFlightService;
+import org.home.sample.service.impl.PassengerTypeServiceImpl;
+import org.home.sample.service.impl.PricingRuleServiceImpl;
+import org.home.sample.service.impl.SearchFlightServiceImpl;
 
 public class CSVFileParser<E> {
 	
@@ -53,10 +61,20 @@ public class CSVFileParser<E> {
 			List<Flight> flights = flightCSV.readFile(ClassLoader.getSystemResource("data/flights.csv").toURI(), Flight.class);
 			List<PricingRules> pricingRules = pricingRulesCSV.readFile(ClassLoader.getSystemResource("data/pricing-rules.csv").toURI(), PricingRules.class);
 			
-			airports.forEach(val -> System.out.println(val));
-			airlines.forEach(val -> System.out.println(val));
-			flights.forEach(val -> System.out.println(val));
-			pricingRules.forEach(val -> System.out.println(val));
+//			airports.forEach(val -> System.out.println(val));
+//			airlines.forEach(val -> System.out.println(val));
+//			flights.forEach(val -> System.out.println(val));
+//			pricingRules.forEach(val -> System.out.println(val));
+			
+			
+			PassengerTypeService passengerTypeService = new PassengerTypeServiceImpl(airlines);
+			PricingRuleService pricingRuleService = new PricingRuleServiceImpl(pricingRules);
+			SearchFlightService searchFlightService = new SearchFlightServiceImpl(flights, pricingRuleService, passengerTypeService);
+			
+			SearchFlightRequest request = new SearchFlightRequest("CDG", "FRA", 2, 1, 2, 0);
+			
+			List<SearchFlightResponse> response  = searchFlightService.findAvailableFlights(request);
+			System.out.println(response.toString());
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
