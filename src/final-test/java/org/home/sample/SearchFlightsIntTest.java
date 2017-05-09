@@ -26,8 +26,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-@RunWith(Parameterized.class)
-public class SearchFlightsTest {
+//@RunWith(Parameterized.class)
+public class SearchFlightsIntTest {
 	
 	private List<Airline> airlines;
 	
@@ -72,7 +72,7 @@ public class SearchFlightsTest {
 	
 	   
 
-	   public SearchFlightsTest(String from, String to, Integer daysTo, Integer numAdults, Integer numChildren,
+	   public SearchFlightsIntTest(String from, String to, Integer daysTo, Integer numAdults, Integer numChildren,
 				Integer numInfants, String resultFlightCode, Double totalPrice) {
 			super();
 			this.from = from;

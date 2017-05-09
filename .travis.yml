@@ -2,4 +2,5 @@ language: java
 jdk:
   - oraclejdk8
 sudo: false
-script: mvn clean verify
+install: mvn clean install -DskipTests=true
+script: mvn test -P int
