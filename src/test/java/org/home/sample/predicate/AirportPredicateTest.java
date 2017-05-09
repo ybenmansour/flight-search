@@ -15,7 +15,7 @@ public class AirportPredicateTest {
 		airports.add(new Airport("IST", "Istanbul"));
 		airports.add(new Airport("LHR", "TLondon"));
 		
-		Assert.assertFalse(AirportPredicate.filterAirports(airports, AirportPredicate.existsAirport("IST")).findFirst().isPresent());
+		Assert.assertTrue("The airport code doesn't exist",AirportPredicate.filterAirports(airports, AirportPredicate.existsAirport("IST")).findFirst().isPresent());
 	}
 
 }

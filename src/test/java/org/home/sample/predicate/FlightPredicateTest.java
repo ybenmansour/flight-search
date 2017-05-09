@@ -17,9 +17,9 @@ public class FlightPredicateTest {
 		flights.add(new Flight("AMS","CPH","TK4927",290.15));
 		flights.add(new Flight("LHR","CDG","IB2771",289.07));
 		
-		Assert.assertFalse(FlightPredicate.filterFlights(flights, FlightPredicate.existsAirline("RY")).findFirst().isPresent());
+		Assert.assertTrue("The airline code doens't match any flight number",FlightPredicate.filterFlights(flights, FlightPredicate.existsAirline("RY")).findFirst().isPresent());
 		
-		Assert.assertFalse(FlightPredicate.filterFlights(flights, FlightPredicate.existsOriginAndDestination("AMS", "CPH")).findFirst().isPresent());
+		Assert.assertTrue("There's no flight number for the origin and destination selected",FlightPredicate.filterFlights(flights, FlightPredicate.existsOriginAndDestination("AMS", "CPH")).findFirst().isPresent());
 	}
 
 }

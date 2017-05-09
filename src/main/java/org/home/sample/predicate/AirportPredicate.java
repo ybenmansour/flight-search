@@ -9,7 +9,7 @@ import org.home.sample.model.Airport;
 public class AirportPredicate {
 	
 	public static Predicate<Airport> existsAirport (String code) {
-		return airport -> airport.getIatacode().startsWith(code); 
+		return airport -> airport.getIatacode().equalsIgnoreCase(code); 
 	}
 	
 	public static Stream<Airport> filterAirports (List<Airport> airports, Predicate<Airport> predicate) {
