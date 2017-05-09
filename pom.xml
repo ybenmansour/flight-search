@@ -31,9 +31,6 @@
 	<profiles>
         <profile>
             <id>unit</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <build.profile.id>unit</build.profile.id>
                 <skip.integration.tests>true</skip.integration.tests>
@@ -43,6 +40,9 @@
         
         <profile>
             <id>int</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <build.profile.id>int</build.profile.id>
                 <skip.integration.tests>false</skip.integration.tests>
