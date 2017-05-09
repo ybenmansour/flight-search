@@ -17,10 +17,6 @@ public class FlightPredicate {
 		return flight -> flight.getFlightNumber().startsWith(code); 
 	}
 	
-//	public static List<Flight> filterFlights (List<Flight> flights, Predicate<Flight> predicate) {
-//        return flights.stream().filter(predicate).collect(Collectors.<Flight>toList());
-//    }
-	
 	public static Stream<Flight> filterFlights (List<Flight> flights, Predicate<Flight> predicate) {
         return flights.stream().filter(predicate);
     }

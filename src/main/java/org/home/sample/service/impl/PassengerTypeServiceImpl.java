@@ -21,7 +21,7 @@ public class PassengerTypeServiceImpl implements PassengerTypeService {
 		this.airlines = airlines;
 	}
 	
-	public List<SearchFlightResponse> applyPriceToPassenger (Stream<Flight> flights, SearchFlightRequest request) {
+	public Stream<SearchFlightResponse> applyPriceToPassenger (Stream<Flight> flights, SearchFlightRequest request) {
 		
 		List<SearchFlightResponse> response = new ArrayList<SearchFlightResponse>();
 		
@@ -38,7 +38,7 @@ public class PassengerTypeServiceImpl implements PassengerTypeService {
 					}
 		});
 		
-		return response;
+		return response.stream();
 		
 	}
 	

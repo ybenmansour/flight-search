@@ -73,7 +73,7 @@ public class CSVFileParser<E> {
 			
 			SearchFlightRequest request = new SearchFlightRequest("CDG", "FRA", 2, 1, 2, 0);
 			
-			List<SearchFlightResponse> response  = searchFlightService.findAvailableFlights(request);
+			Stream<SearchFlightResponse> response  = searchFlightService.findAvailableFlights(request);
 			System.out.println(response.toString());
 			
 		} catch (Exception e) {

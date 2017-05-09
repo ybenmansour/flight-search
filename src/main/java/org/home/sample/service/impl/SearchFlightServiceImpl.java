@@ -29,8 +29,8 @@ public class SearchFlightServiceImpl implements SearchFlightService {
 	}
 
 
-	public List<SearchFlightResponse> findAvailableFlights (SearchFlightRequest request) {
-		List<SearchFlightResponse> results = null;
+	public Stream<SearchFlightResponse> findAvailableFlights (SearchFlightRequest request) {
+		Stream<SearchFlightResponse> results = null;
 		
 		Stream<Flight> availableflights = FlightPredicate.filterFlights(flights, FlightPredicate.existsOriginAndDestination(request.getFrom(), request.getTo()));
 		Stream<Flight> availableflightsWithPriceUpdated = pricingRuleService.flightsWithPricingRules(availableflights, request);

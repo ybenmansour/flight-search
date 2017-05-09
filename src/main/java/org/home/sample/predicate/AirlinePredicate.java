@@ -16,5 +16,4 @@ public class AirlinePredicate {
         return airlines.stream().filter(predicate);
     }
 	
-
 }
