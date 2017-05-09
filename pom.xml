@@ -53,6 +53,9 @@
 	
 	<build>
         <finalName>filght-search-integration-testing</finalName>
+        <filters>
+            <filter>profiles/${build.profile.id}/config.properties</filter>
+        </filters>
         <resources>
             <resource>
                 <filtering>true</filtering>
